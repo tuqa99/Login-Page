@@ -10,12 +10,11 @@ class Log_in extends StatefulWidget {
 }
 
 class _Log_inState extends State<Log_in> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   final myEmail = TextEditingController();
   final myPassword = TextEditingController();
   String email = 'tuqa@gmail.com';
   String password = '1999';
+  String sorrymassege = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +67,11 @@ class _Log_inState extends State<Log_in> {
                 obscureText: true,
               ),
             ),
+            Text('$sorrymassege',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 22,
+                )),
             ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -78,11 +82,13 @@ class _Log_inState extends State<Log_in> {
                         },
                       ));
                     } else {
+                      sorrymassege =
+                          ' Sorry your password or email is not correct ';
                       print(' Sorry your password or email is not correct');
                     }
                   });
                 },
-                child: Text("log-in"))
+                child: Text("log-in")),
           ],
         ),
       ),
